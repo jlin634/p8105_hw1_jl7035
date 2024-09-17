@@ -16,6 +16,8 @@ library(ggplot2)
 ```
 
 
+### Problem 1
+
 # load penguins data set
 ```{r}
 data("penguins", package = "palmerpenguins")
@@ -63,6 +65,20 @@ flipper_by_bill_len <- ggplot(penguins,
                         geom_point()
 
 ggsave("flipper_by_bill_len_plot.pdf")
+```
+
+
+### Problem 2
+
+```{r}
+df <- tibble(
+  random_sample = rnorm(10),
+  greater_than_0 = (random_sample > 0),
+  char_vec = c('a', 'b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'),
+  factor_vec = factor(c("small", "small", "small", "large", "large", "large",
+                        "medium","medium", "medium", "medium"))
+)
+
 ```
 
 
