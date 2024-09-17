@@ -96,3 +96,22 @@ Attempting to take the mean of each of the variables within df, we find that
 the mean cannot be calculated for the vector of characters or vector of factors.
 This is because they are not of numeric or logical type.
 
+```{r results = 'hide'}
+
+as.numeric(pull(df, greater_than_0))
+as.numeric(pull(df,char_vec))
+as.numeric(pull(df, factor_vec))
+            
+```
+Using the as.numeric function, we see that the boolean vector is converted into
+binary encodings that correspond to true or false, while the factor vector 
+takes the 3 levels and assigns them to corresponding integers. In both cases, 
+integers are being used as categories to map the original contents of the 
+vectors to respectively. Additionaly, we see that we are unable to convert 
+the char vector into a numeric type, explaining why the mean could not be 
+taken for this variable, as there was no corresponding numeric equivalent. This
+logic also shows why the boolean vec could have its mean taken. Interestingly,
+the factor variable can be converted to numeric, yet we were unable to get its
+mean. Its likely that the boolean variable differs from the behavior of the 
+factor vec, as the "TRUE" and "FALSE" values initially assigned to it are 
+likely 0 and 1 under the hood.
