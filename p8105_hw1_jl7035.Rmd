@@ -31,8 +31,10 @@ ncols_penguins <- ncol(penguins)
 nrows_penguins <- nrow(penguins)
 
 colnames_penguins <- colnames(penguins)
-num_species <- penguins %>%
-                  select
+types_of_species <- unique(penguins %>%
+                  select("species"))
+which_islands <- unique(penguins %>%
+                          select("island"))
 
 
 
