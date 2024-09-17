@@ -70,6 +70,8 @@ ggsave("flipper_by_bill_len_plot.pdf")
 
 ### Problem 2
 
+
+# Create Table
 ```{r}
 df <- tibble(
   random_sample = rnorm(10),
@@ -81,5 +83,16 @@ df <- tibble(
 
 ```
 
+# Attempt to calculate means
+```{r}
+mean(pull(df, random_sample))
+mean(pull(df, greater_than_0))
+mean(pull(df,char_vec))
+mean(pull(df, factor_vec))
 
+
+```
+Attempting to take the mean of each of the variables within df, we find that 
+the mean cannot be calculated for the vector of characters or vector of factors.
+This is because they are not of numeric or logical type.
 
