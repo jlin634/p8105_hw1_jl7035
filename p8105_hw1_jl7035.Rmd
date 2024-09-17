@@ -9,6 +9,11 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# load necessary libraries
+```{r}
+library(dplyr)
+```
+
 
 # load penguins data set
 ```{r}
@@ -24,7 +29,12 @@ head(penguins)
 
 ncols_penguins <- ncol(penguins)
 nrows_penguins <- nrow(penguins)
+
 colnames_penguins <- colnames(penguins)
+num_species <- penguins %>%
+                  select
+
+
 
 ```
 
