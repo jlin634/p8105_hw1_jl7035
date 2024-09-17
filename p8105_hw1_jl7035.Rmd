@@ -16,3 +16,15 @@ data("penguins", package = "palmerpenguins")
 
 ```
 
+
+
+# Exploring the Penguins Data Set
+```{r}
+head(penguins)
+
+ncols_penguins <- ncol(penguins)
+nrows_penguins <- nrow(penguins)
+colnames_penguins <- colnames(penguins)
+
+```
+
