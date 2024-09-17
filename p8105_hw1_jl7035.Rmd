@@ -56,5 +56,14 @@ penguins in this dataset is 201 mm.
 
 # Makes Scatterplot of flipper length by bill length 
 
+```{r}
+flipper_by_bill_len <- ggplot(penguins, 
+                        aes(x = bill_length_mm, y = flipper_length_mm, 
+                        color = species)) + 
+                        geom_point()
+
+ggsave("flipper_by_bill_len_plot.pdf")
+```
+
 
 
