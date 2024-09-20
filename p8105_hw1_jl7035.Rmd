@@ -53,7 +53,7 @@ There are also 8 columns in this dataset, reflecting various measures regarding
 the penguins characteristics. They are as follows: (1) "species", (2) "island",
 (3) "bill_length_mm", (4) "bill_depth_mm", (5) "flipper_length_mm",
 (6) "body_mass_g, (7) "sex",(8) "year. The mean length of the flipper for 
-penguins in this dataset is 'r mean(flipper_length_m)'. 
+penguins in this dataset is `r mean(flipper_length_m)`. 
 
 
 # Makes Scatterplot of flipper length by bill length 
