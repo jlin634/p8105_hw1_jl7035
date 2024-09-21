@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# load necessary libraries
+# Load Necessary Libraries
 ```{r}
 library(dplyr)
 library(ggplot2)
@@ -18,42 +18,21 @@ library(ggplot2)
 
 ### Problem 1
 
-# load penguins data set
+# Load Penguins dataset
 ```{r}
 data("penguins", package = "palmerpenguins")
 
 ```
 
-
-
-# Exploring the Penguins Data Set
-```{r}
-head(penguins)
-
-ncols_penguins <- ncol(penguins)
-nrows_penguins <- nrow(penguins)
-
-colnames_penguins <- colnames(penguins)
-types_of_species <- unique(penguins %>%
-                  select("species"))
-which_islands <- unique(penguins %>%
-                        select("island"))
-
-mean_flipper_length <- penguins %>% 
-                        summarise(mean_flipper_length = 
-                                    mean(flipper_length_mm, na.rm = TRUE))
-
-```
+# Describe the Penguins dataset
 
 This dataset explores various characteristics regarding 3 different species
-of penguin. The 3 species are as follows: Adelie, Gentoo, Chinstrap. These 
-penguins come from 3 different islands: Torgersen, Biscoe, Dream. In total, 
-there are 344 rows in the dataset, corresponding to 344 sampled penguins. 
-There are also 8 columns in this dataset, reflecting various measures regarding 
-the penguins characteristics. They are as follows: (1) "species", (2) "island",
-(3) "bill_length_mm", (4) "bill_depth_mm", (5) "flipper_length_mm",
-(6) "body_mass_g, (7) "sex",(8) "year. The mean length of the flipper for 
-penguins in this dataset is `r mean(flipper_length_m)`. 
+of penguin. The 3 species are as follows: `r unique(pull(penguins, species))`. 
+These penguins come from 3 different islands: `r unique(pull(penguins, island))`
+. In total, there are `r nrow(penguins)` rows and `r ncol(penguins)` columns in 
+this dataset. The columns reflect various characteristics of the penguins, which 
+are as follows: `r colnames(penguins)`. The mean length of the flipper for 
+penguins in this dataset is `r mean(pull(penguins, flipper_length_mm), na.rm= TRUE)`. 
 
 
 # Makes Scatterplot of flipper length by bill length 
