@@ -11,20 +11,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Load Necessary Libraries
 ```{r}
-library(dplyr)
-library(ggplot2)
+library(tidyverse)
 ```
 
 
-### Problem 1
+# Problem 1
 
-# Load Penguins dataset
+## Load Penguins dataset
 ```{r}
 data("penguins", package = "palmerpenguins")
 
 ```
 
-# Describe the Penguins dataset
+## Describe the Penguins dataset
 
 This dataset explores various characteristics regarding 3 different species
 of penguin. The 3 species are as follows: `r unique(pull(penguins, species))`. 
@@ -35,7 +34,7 @@ are as follows: `r colnames(penguins)`. The mean length of the flipper for
 penguins in this dataset is `r mean(pull(penguins, flipper_length_mm), na.rm= TRUE)`. 
 
 
-# Makes Scatterplot of flipper length by bill length 
+## Makes Scatterplot of flipper length by bill length 
 
 ```{r}
 flipper_by_bill_len <- ggplot(penguins, 
@@ -47,10 +46,10 @@ ggsave("flipper_by_bill_len_plot.pdf")
 ```
 
 
-### Problem 2
+# Problem 2
 
 
-# Create Table
+## Create Data Frame
 ```{r}
 df <- tibble(
   random_sample = rnorm(10),
@@ -62,7 +61,7 @@ df <- tibble(
 
 ```
 
-# Attempt to calculate means
+## Attempt to calculate means for each column in the table
 ```{r}
 mean(pull(df, random_sample))
 mean(pull(df, greater_than_0))
@@ -75,7 +74,8 @@ Attempting to take the mean of each of the variables within df, we find that
 the mean cannot be calculated for the vector of characters or vector of factors.
 This is because they are not of numeric or logical type.
 
-```{r results = 'hide'}
+## Attempt to convert each of the non-numeric columns to numeric
+```{r results = 'hide', warning=FALSE}
 
 as.numeric(pull(df, greater_than_0))
 as.numeric(pull(df,char_vec))
@@ -83,7 +83,7 @@ as.numeric(pull(df, factor_vec))
             
 ```
 Using the as.numeric function, we see that the boolean vector is converted into
-binary encodings that correspond to true or false, while the factor vector 
+numeric encodings that correspond to 0 or 1, while the factor vector 
 takes the 3 levels and assigns them to corresponding integers. In both cases, 
 integers are being used as categories to map the original contents of the 
 vectors to respectively. Additionaly, we see that we are unable to convert 
